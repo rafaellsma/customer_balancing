@@ -3,6 +3,7 @@ require "timeout"
 require_relative "customer_success_balancing"
 
 class CustomerSuccessBalancingTest < Minitest::Test
+  # Test case below were provided by the challenge instructions
   def test_scenario_one
     balancer = CustomerSuccessBalancing.new(
       build_scores([60, 20, 95, 75]),
@@ -65,6 +66,44 @@ class CustomerSuccessBalancingTest < Minitest::Test
       [4, 5, 6]
     )
     assert_equal 3, balancer.execute
+  end
+
+  # Test cases below were added by myself
+
+  def test_scenario_eight
+    balancer = CustomerSuccessBalancing.new(
+      build_scores([]),
+      build_scores([]),
+      []
+    )
+    assert_equal 0, balancer.execute
+  end
+
+  def test_scenario_nine
+    balancer = CustomerSuccessBalancing.new(
+      build_scores([23]),
+      build_scores([23]),
+      []
+    )
+    assert_equal 1, balancer.execute
+  end
+
+  def test_scenario_ten
+    balancer = CustomerSuccessBalancing.new(
+      build_scores([23]),
+      build_scores([23]),
+      [1]
+    )
+    assert_equal 0, balancer.execute
+  end
+
+  def test_scenario_eleven
+    balancer = CustomerSuccessBalancing.new(
+      build_scores([23]),
+      build_scores([26]),
+      []
+    )
+    assert_equal 0, balancer.execute
   end
 
   private
