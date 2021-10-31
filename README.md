@@ -6,7 +6,7 @@
 
 ## How to run tests
 ```
-ruby customer_success_balancing_test
+ruby customer_success_balancing_test.rb
 ```
 
 ## Project structure
